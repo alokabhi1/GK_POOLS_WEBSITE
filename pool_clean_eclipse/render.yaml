@@ -3,8 +3,8 @@ services:
     name: gurukrupa-pools-api
     runtime: docker
     plan: free
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerfilePath: ./pool_clean_eclipse/backend/Dockerfile
+    dockerContext: ./pool_clean_eclipse/backend
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
