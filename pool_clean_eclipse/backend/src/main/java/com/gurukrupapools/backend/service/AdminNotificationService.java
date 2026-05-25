@@ -1,5 +1,5 @@
 package com.gurukrupapools.backend.service;
-
+import org.springframework.scheduling.annotation.Async;
 import com.gurukrupapools.backend.entity.Inquiry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ public class AdminNotificationService {
         this.adminEmail = adminEmail;
         this.fromEmail = fromEmail;
     }
-
+    @Async
     public void sendNewInquiryEmail(Inquiry inquiry) {
         if (!StringUtils.hasText(adminEmail)) {
             log.info("Admin email is not configured. Inquiry {} was saved without email notification.", inquiry.getId());
