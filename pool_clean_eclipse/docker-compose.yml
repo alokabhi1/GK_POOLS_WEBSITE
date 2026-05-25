@@ -1,0 +1,33 @@
+services:
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: gurukrupa_pools
+      MYSQL_ROOT_PASSWORD: change_this_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: jdbc:mysql://database:3306/gurukrupa_pools?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata
+      DB_USERNAME: root
+      DB_PASSWORD: change_this_password
+      CORS_ALLOWED_ORIGIN_PATTERNS: http://localhost:8000,http://127.0.0.1:8000,https://yourdomain.com,https://www.yourdomain.com
+      ADMIN_API_TOKEN: change_this_admin_token
+      ADMIN_EMAIL: admin@yourdomain.com
+      MAIL_FROM: no-reply@yourdomain.com
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USERNAME: no-reply@yourdomain.com
+      MAIL_PASSWORD: your_app_password
+
+volumes:
+  mysql_data:

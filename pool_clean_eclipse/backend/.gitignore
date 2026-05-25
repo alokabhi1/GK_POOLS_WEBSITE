@@ -1,0 +1,6 @@
+/target/
+/data/*.db
+/data/*.trace.db
+/.settings/
+/.classpath
+/.project

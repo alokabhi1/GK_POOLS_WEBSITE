@@ -1,0 +1,19 @@
+# Build outputs
+backend/target/
+
+# Local databases and runtime files
+backend/data/
+*.mv.db
+*.trace.db
+
+# Local secrets
+.env
+*.env
+backend/.env
+
+# Editor files
+.idea/
+.vscode/
+.settings/
+.classpath
+.project

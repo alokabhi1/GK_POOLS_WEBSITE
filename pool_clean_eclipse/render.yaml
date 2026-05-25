@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: gurukrupa-pools-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: CORS_ALLOWED_ORIGIN_PATTERNS
+        sync: false
+      - key: ADMIN_API_TOKEN
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_SMTP_AUTH
+        value: true
+      - key: MAIL_SMTP_STARTTLS_ENABLE
+        value: true
